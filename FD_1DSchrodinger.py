@@ -3,12 +3,13 @@ from scipy.linalg import eigh
 
 #we set mu = hbar = 1
 
+#mesh of the finite difference 
 xmin = -10; xmax = 10; Nmesh = 2000
 xmesh = np.linspace(xmin, xmax, Nmesh)
 h = xmesh[1] - xmesh[0]
 
-L = 1.0
-V = 8.0 
+L = 1.0 # potential width 
+V = 8.0 # potential depth 
 def Vpot(x):
     if abs(x)< L/2.:
         return -V
@@ -40,7 +41,7 @@ if __name__=='__main__':
     #plt.plot(xmesh, [Vpot(x) for x in xmesh], 'k-', lw=2)
 
     for n in range(nlowest):
-        plt.plot(xmesh, v[:,n], label='n=%g'%(n))
+        plt.plot(xmesh, v[:,n], label='n=%g'%(n), lw=2)
     plt.xlabel('$x$')
     plt.ylabel('$\Psi_{n}(x)$')
     plt.legend()
