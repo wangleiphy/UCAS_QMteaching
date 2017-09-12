@@ -32,13 +32,14 @@ if __name__=='__main__':
 
     H = buildH()
     w, v = eigh(H)
-
-    print w[0:3]
+    
+    nlowest = 2
+    print 'energies:', w[0:nlowest]
 
     import matplotlib.pyplot as plt
     #plt.plot(xmesh, [Vpot(x) for x in xmesh], 'k-', lw=2)
 
-    for n in range(3):
+    for n in range(nlowest):
         plt.plot(xmesh, v[:,n], label='n=%g'%(n))
     plt.xlabel('$x$')
     plt.ylabel('$\Psi_{n}(x)$')
